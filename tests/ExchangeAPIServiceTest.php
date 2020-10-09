@@ -42,24 +42,6 @@ class ExchangeAPIServiceTest extends TestCase
 JSON;
 
 
-    private function correctMock() : MockObject {
-        $mock = $this->createMock(ExchangeRatesAPI::class);
-
-        $mock->method('addDateFrom')
-            ->willReturn($mock);
-
-        $mock->method('addDateTo')
-            ->willReturn($mock);
-
-        $mock->method('addRates')
-            ->willReturn($mock);
-
-        $mock->method('fetch')
-            ->willReturn(self::JSON_DATA);
-
-        return $mock;
-    }
-
     public function setUp() {
         $this->obj = new ExchangeAPIService($this->correctMock());
     }
@@ -76,5 +58,23 @@ JSON;
         foreach ($result as $rate) {
             self::assertInstanceOf(Rate::class, $rate);
         }
+    }
+
+    private function correctMock() : MockObject {
+        $mock = $this->createMock(ExchangeRatesAPI::class);
+
+        $mock->method('addDateFrom')
+            ->willReturn($mock);
+
+        $mock->method('addDateTo')
+            ->willReturn($mock);
+
+        $mock->method('addRates')
+            ->willReturn($mock);
+
+        $mock->method('fetch')
+            ->willReturn(self::JSON_DATA);
+
+        return $mock;
     }
 }
