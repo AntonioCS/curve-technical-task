@@ -7,7 +7,7 @@ use App\DTO\Rate;
 use App\Service\ExchangeService\ExchangeAPIService;
 use App\Service\ExchangeMoneyService\ExchangeMoneyService;
 
-class Manager
+final class Manager
 {
     private ExchangeAPIService $exchangeService;
     private ExchangeMoneyService $exchangeMoneyService;
